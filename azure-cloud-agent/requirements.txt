@@ -1,0 +1,12 @@
+azure-identity
+azure-mgmt-resourcegraph
+azure-mgmt-compute
+azure-mgmt-storage
+azure-mgmt-web
+azure-mgmt-costmanagement
+openai
+python-dotenv
+fastapi
+uvicorn
+pyjwt[crypto]
+requests
