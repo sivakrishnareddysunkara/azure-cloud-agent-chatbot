@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap");
+
+:root {
+  --ink: #0a0f1f;
+  --paper: #f3efe7;
+  --accent: #f77f00;
+  --accent-dark: #c86400;
+  --shadow: rgba(10, 15, 31, 0.15);
+  --panel: rgba(255, 255, 255, 0.85);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  min-height: 100vh;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(247, 127, 0, 0.15), transparent 45%),
+    radial-gradient(circle at 80% 10%, rgba(53, 81, 92, 0.2), transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(10, 15, 31, 0.08), transparent 50%);
+  pointer-events: none;
+}
+
+.page {
+  position: relative;
+  padding: 48px 20px 64px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.hero {
+  margin-bottom: 28px;
+  animation: floatIn 0.8s ease-out;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  margin: 0 0 12px;
+  color: rgba(10, 15, 31, 0.6);
+}
+
+h1 {
+  font-family: "Fraunces", serif;
+  font-size: clamp(2.3rem, 3vw, 3.2rem);
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 1rem;
+  max-width: 620px;
+  color: rgba(10, 15, 31, 0.7);
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 22px;
+  box-shadow: 0 28px 60px var(--shadow);
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  animation: floatIn 0.9s ease-out;
+}
+
+.error-banner {
+  background: rgba(199, 59, 30, 0.1);
+  border: 1px solid rgba(199, 59, 30, 0.4);
+  color: #7b241c;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.message {
+  display: flex;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.bubble {
+  max-width: 82%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 12px 24px rgba(10, 15, 31, 0.08);
+  animation: bubbleIn 0.4s ease;
+}
+
+.message.user .bubble {
+  background: var(--ink);
+  color: white;
+}
+
+.composer {
+  margin-top: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(10, 15, 31, 0.05);
+}
+
+.auth-label {
+  margin: 0 0 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(10, 15, 31, 0.5);
+}
+
+.auth-user {
+  margin: 0;
+  font-weight: 600;
+}
+
+.auth-claims {
+  margin: 6px 0 0;
+  font-size: 0.8rem;
+  color: rgba(10, 15, 31, 0.7);
+  word-break: break-word;
+}
+
+.auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.field input,
+.field textarea {
+  border: 1px solid rgba(10, 15, 31, 0.12);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: white;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+button.ghost {
+  background: transparent;
+  border: 1px solid rgba(10, 15, 31, 0.2);
+  color: var(--ink);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+.status {
+  color: rgba(10, 15, 31, 0.6);
+  font-size: 0.85rem;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bubbleIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .panel {
+    padding: 18px;
+  }
+
+  .bubble {
+    max-width: 100%;
+  }
+}

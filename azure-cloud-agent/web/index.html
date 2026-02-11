@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azure Governance Chat</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="backdrop"></div>
+    <div class="page">
+      <header class="hero">
+        <p class="eyebrow">Azure Governance Assistant</p>
+        <h1>Ask about your resources. Get governance answers.</h1>
+        <p class="subtitle">
+          Query live Azure resources and receive security, cost, compliance, and
+          optimization guidance in one place.
+        </p>
+      </header>
+
+      <main class="panel">
+        <div class="error-banner" id="errorBanner" hidden></div>
+        <section class="chat" id="chatLog">
+          <div class="message bot">
+            <div class="bubble">
+              <p>
+                Drop a question like: “Which storage accounts are risky?” or “Summarize VM
+                optimization opportunities.”
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <form class="composer" id="chatForm">
+          <div class="auth">
+            <div>
+              <p class="auth-label">Signed in as</p>
+              <p class="auth-user" id="userLabel">Not signed in</p>
+              <p class="auth-claims" id="tokenClaims" hidden></p>
+            </div>
+            <div class="auth-actions">
+              <button type="button" id="loginBtn">Sign in</button>
+              <button type="button" id="logoutBtn" class="ghost" disabled>Sign out</button>
+              <button type="button" id="claimsBtn" class="ghost">Show token claims</button>
+            </div>
+          </div>
+
+          <label class="field">
+            <span>Your question</span>
+            <textarea
+              id="messageInput"
+              rows="3"
+              placeholder="Ask about governance, security, cost, or compliance..."
+            ></textarea>
+          </label>
+
+          <div class="actions">
+            <button type="submit">Send question</button>
+            <span id="status" class="status">Ready.</span>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <script src="/static/vendor/msal-browser.min.js" defer></script>
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
